@@ -1,0 +1,949 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eco Command</title>
+    <style>
+        body{
+            justify-content: center;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: auto;
+            box-sizing: border-box;
+        }
+
+        /*start of start header styles*/
+        .startheader {
+            background-image: url("https://lh3.googleusercontent.com/d/1I-znP0kCjb9WvXuw1lYPA_-75xcWWuzK");
+            width: 100%;
+            height: 100vh;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center bottom;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+        }
+
+        .topbar{
+            top: 20px;
+            display: flex;
+            position: relative;
+            left: 0;
+            right: 0;
+            margin: 0 auto;
+            max-width: 1300px;
+            width: 95%;
+            min-height: 60px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background-color: rgba(255, 255, 255, 0.9);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            padding: 10px 20px;
+            box-sizing: border-box;
+        }
+
+        .topbar img {
+            max-width: 150px;
+            height: auto;
+            margin-right: 20px;
+        }
+
+        .topbar a {
+            text-decoration: none;
+            color: #000;
+            font-size: 16px;
+            font-weight: bold;
+            margin: 0 15px;
+            font-family: "Arial", sans-serif;
+            font-weight: 550;
+        }
+
+        .topbar a:visited,
+        .topbar a:active {
+            color: rgba(0, 68, 100, 0.753);
+        }
+
+        .topbar a:hover {
+            color: rgb(0, 58, 0);
+        }
+
+        .topbar2 {
+            margin-top: 250px;
+            background-color: transparent;
+            box-shadow: none;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            gap: 20px;
+            max-width: 90%;
+            width: auto;
+            box-sizing: border-box;
+        }
+
+        .topbar2 img {
+            max-height: 200px;
+            width: auto;
+        }
+
+        .topbar2 p {
+            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-size: 20px;
+            font-weight: 300;
+            color: rgb(255, 255, 255);
+            margin-bottom: 20px;
+        }
+
+        .playnowbutton{
+            background-image: url("https://lh3.googleusercontent.com/d/1DvHsNanAk3IdT_-a1N6Wf2m4mVwaAsFj");
+            width: 200px;
+            height: 60px;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center bottom;
+            position: relative;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            transition: filter 0.3s ease;
+        }
+
+        .playnowbutton div {
+            display: flex;
+            width: 200px;
+            height: 60px;
+            justify-content: center;
+            align-items: center;
+            border-radius: 10px;
+            box-sizing: border-box;
+        }
+
+        .playnowbutton a:active {
+            color: rgba(0, 68, 100, 0.753);
+        }
+
+        .playnowbutton:hover {
+            filter: brightness(80%); /* Reduce brightness on hover (adjust percentage as needed) */
+            cursor: pointer;
+        }
+        /*end of start header styles*/
+
+
+        /*start of about styles*/
+        .aboutheader{
+            background-color: rgb(255, 255, 255);
+            color: rgb(43, 43, 43);
+            width: 100%;
+            height: auto;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            padding: 50px 0;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .about-video-container {
+            width: 80%;
+            max-width: 800px;
+            margin-bottom: 20px;
+        }
+
+        .about-video-container iframe {
+            width: 100%;
+            aspect-ratio: 16 / 9;
+        }
+
+        .aboutdiv{
+            margin: 20px auto;
+            background-color: transparent;
+            box-shadow: none;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            max-width: 95%;
+            width: auto;
+            box-sizing: border-box;
+        }
+
+        .aboutdiv img{
+            max-height: 400px;
+            max-width: 300px;
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .aboutleft-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: transparent;
+            min-width: 300px;
+        }
+
+        .aboutright-section {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            flex: 2;
+            min-width: 300px;
+            max-width: 600px;
+            text-align: left;
+        }
+
+        .aboutright-section p:first-child {
+            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-size: 28px;
+            font-weight: bold;
+            color: rgb(0, 58, 0);
+            margin-bottom: 10px;
+        }
+
+        .aboutright-section p {
+            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-size: 20px;
+            font-weight: 300;
+            color: rgb(43, 43, 43);
+            line-height: 1.2;
+            margin-bottom: 15px;
+        }
+
+        .aboutheader > p {
+            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-size: 1.2em;
+            font-weight: bold;
+            margin-top: 30px;
+            margin-bottom: 10px;
+        }
+
+        .Followusdiv {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+            width: 100%;
+            max-width: 600px;
+        }
+
+        .Followuscontainer {
+            padding: 10px;
+            border-radius: 8px;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .follow-link {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: #000;
+            width: 100%;
+            height: 100%;
+        }
+
+        .follow-link img {
+            max-width: 30px;
+            height: auto;
+            max-height: 30px;
+        }
+
+        .follow-link span {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #000;
+        }
+
+        .Followuscontainer:hover {
+            background-color: rgba(0, 0, 0, 0.05);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+        }
+
+        .Followuscontainer:active {
+            background-color: rgba(0, 0, 0, 0.1);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+        }
+
+        .Followuscontainer:hover .follow-link span {
+            color: rgb(0, 58, 0);
+        }
+
+        .Followuscontainer:active .follow-link span {
+            color: rgba(0, 68, 100, 0.753);
+        }
+
+        /*end of about styles*/
+
+
+        /*start of screenshots styles*/
+        .screenshotsheader{
+            background-color: rgb(238, 242, 255);
+            width: 100%;
+            height: auto;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            padding: 50px 0 50px 0;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .screenshotsheader p{
+            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .carousel-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
+            width: 95%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .carousel {
+            display: flex;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            gap: 20px;
+        }
+
+
+        .carousel {
+            scroll-snap-type: x mandatory;
+        }
+
+        .carousel img {
+            scroll-snap-align: start;
+            flex-shrink: 0;
+            width: 100%;
+            max-width: 1200px;
+        }
+
+
+        button.prev, button.next {
+            position: absolute;
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 30px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 30px;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 10;
+        }
+
+        button.prev {
+            left: 0px;
+        }
+
+        button.next {
+            right: 0px;
+        }
+        /*end of screenshots styles*/
+
+
+        /*start of ourteam styles*/
+        .ourteamheader{
+            background-color: rgb(255, 255, 255);
+            color: rgb(228, 228, 228);
+            width: 100%;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            height: auto;
+            background-image: url("https://lh3.googleusercontent.com/d/195aiQ7KAMl69_ou00FN_JUEWrD2LJc7I"); /* Donation background */
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center bottom;
+            position: relative;
+            padding: 50px 0 50px 0;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .ourteamheader img{
+            max-width: 400px;
+            height: auto;
+            padding-bottom: 15px;
+        }
+
+        .ourteamcontainerdiv {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            justify-items: center;
+            align-items: center;
+            width: 100%;
+            max-width: 1200px;
+            margin: 20px auto;
+            gap: 20px;
+            box-sizing: border-box;
+        }
+
+        .ourteamdiv {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            width: 100%;
+            height: auto;
+            padding: 15px;
+            box-sizing: border-box;
+        }
+
+        .ourteamdiv img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .name {
+            font-size: 20px;
+            padding: 0;
+            color: rgb(255, 255, 255);
+            margin: 10px 0 0 0;
+        }
+
+        .role {
+            font-size: 16px;
+            color: rgb(207, 207, 207);
+            margin: 5px 0 15px 0;
+        }
+
+        .empty {
+            display: none;
+        }
+        /*end of outteam styles*/
+
+
+        /*start of merchandise styles*/
+        .merchandiseheader{
+            background-color: rgb(238, 242, 255);
+            width: 100%;
+            height: auto;
+            color: rgb(0, 0, 0);
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            padding: 50px 0 50px 0;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .merchandiseheader img{
+            max-width: 400px;
+            height: auto;
+            padding-bottom: 15px;
+        }
+
+        .merchandisecontainerdiv {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            justify-items: center;
+            align-items: center;
+            width: 100%;
+            max-width: 1200px;
+            margin: 20px auto;
+            gap: 20px;
+            box-sizing: border-box;
+        }
+
+        .merchandisediv {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            width: 100%;
+            height: auto;
+            padding: 15px;
+            box-sizing: border-box;
+        }
+
+        .merchandisediv img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .merchname {
+            font-size: 20px;
+            padding: 0;
+            color: rgb(0, 0, 0);
+            margin: 10px 0 0 0;
+        }
+
+        .merchprice {
+            font-size: 16px;
+            color: rgb(126, 126, 126);
+            margin: 5px 0 15px 0;
+        }
+        /*end of merchandise styles*/
+
+
+        /*start of bottom styles*/
+        .bottomheader {
+            background-color: rgb(40, 42, 61);
+            color: rgb(158, 158, 158);
+            width: 100%;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            height: auto;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            padding: 20px;
+            box-sizing: border-box;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .bottomheader p{
+            font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            font-size: 12px;
+            font-weight: 400px;
+        }    
+
+        .bottomheader p{
+            font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            font-size: 12px;
+            font-weight: 400;
+            color: rgb(255, 255, 255);
+            margin: 0;
+        }
+        /*end of bottom styles*/
+
+        @media (max-width: 1360px) {
+            .topbar {
+                display: none;
+            }
+
+            button.prev {
+                left: 10px;
+            }
+
+            button.next {
+                right: 10px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .topbar2 img {
+                max-height: 150px;
+            }
+
+            .topbar2 p {
+                font-size: 16px;
+            }
+
+            .playnowbutton div {
+                width: 150px;
+                height: 50px;
+            }
+
+            .playnowbutton p {
+                font-size: 16px;}
+
+            .aboutdiv {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .aboutdiv img {
+                width: 100%;
+                max-height: none;
+            }
+
+            .aboutleft-section,
+            .aboutright-section {
+                min-width: auto;
+                max-width: none;
+            }
+
+           .Followusdiv {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .Followuscontainer {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .follow-link {
+                justify-content: center;
+            }
+
+            .screenshotsheader p {
+                font-size: 22px;
+            }
+
+            .carousel-container {
+                padding: 10px;
+            }
+
+            button.prev, button.next {
+                font-size: 18px;
+                padding: 8px 12px;
+            }
+
+            .ourteamheader p {
+                font-size: 26px;
+            }
+
+            .merchandiseheader p {
+                font-size: 26px;
+            }
+        }
+
+
+        @media (max-width: 480px) {
+            .topbar2 img {
+                max-height: 100px;
+            }
+
+            .topbar2 p {
+                font-size: 14px;
+            }
+
+            .playnowbutton div {
+                width: 120px;
+                height: 40px;
+            }
+
+            .playnowbutton p {
+                font-size: 14px;
+            }
+
+            .screenshotsheader p {
+                font-size: 20px;
+            }
+
+            button.prev, button.next {
+                font-size: 16px;
+                padding: 6px 10px;
+            }
+
+            .ourteamheader p {
+                font-size: 24px;
+            }
+
+            .merchandiseheader p {
+                font-size: 24px;
+            }
+        }
+
+        /* Fixed autoplay video */
+        .fixed-video-container {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 320px;
+            height: 180px;
+            z-index: 1000;
+            border: none;
+        }
+
+        .fixed-video-container iframe {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="startheader" id="home">
+        <div class="topbar">
+            <img src="https://lh3.googleusercontent.com/d/1kiWjQXGV2rT8_IzLlxt25OYGlsN52SRl" alt="Logo">
+            <a href="#aboutheader">About Us</a>
+            <a href="#screenshotsheader">Screenshots</a>
+            <a href="#ourteamheader">Our Team</a>
+            <a href="#Merchandise">Merchandise</a>
+        </div>
+        <div class="topbar2">
+            <img src="https://lh3.googleusercontent.com/d/1kiWjQXGV2rT8_IzLlxt25OYGlsN52SRl" alt="Game Logo">
+            <p>THE GAME THAT MAKES YOU THINK GREEN</p>
+            <a href="#playnowheader" class="playnowbutton"> <!-- ARWEN!!! Put the Itch.Io link here 🥺🥺🥺 --></a>
+        </div>
+    </div>
+
+    <div class="aboutheader" id="aboutheader">
+        <div class="about-video-container">
+            <iframe
+                src="https://www.youtube.com/embed/your_youtube_video_id?autoplay=1&mute=1"
+                title="Promotional Video"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen>
+            </iframe>
+        </div>
+        <div class="aboutdiv">
+            <div class="aboutleft-section">
+                <img src="https://lh3.googleusercontent.com/d/1JYDe5sgOmDKbeetpNfHHFaghrkT37dyb" alt="About Us Image">
+            </div>
+            <div class="aboutright-section">
+                <p>About Us</p>
+                <p>In Eco Command, players take on the role of a world-saving organization tackling real-life environmental and humanitarian crises. Build specialized facilities, hire and train workers, and deploy teams to hotspots across the globe—whether it's replanting forests or providing clean water in drought-stricken regions.
+                    Stay informed with dynamic world event updates and learn through worker insights that highlight real-world issues. Strategy meets awareness in this engaging management game where every action makes a difference!</p>
+            </div>
+        </div>
+
+        <p>Follow Us!</p>
+        <div class="Followusdiv">
+            <div class="Followuscontainer">
+                <a href="https://www.instagram.com/ecocommand/" class="follow-link">
+                    <img src="https://lh3.googleusercontent.com/d/1MFRsElmdMb9c9anVTzXAOwY2btvcFpGC" alt="Instagram">
+                    <span>Eco Command</span>
+                </a>
+            </div>
+            <div class="Followuscontainer">
+                <a href="https://www.tiktok.com/@ecocommand?_t=ZS-8waerRK10fC&_r=1" class="follow-link">
+                    <img src="https://lh3.googleusercontent.com/d/1EmCAHjtLrumBJRwJfoz7TpKZNp4ZzCvT" alt="TikTok">
+                    <span>Eco Command</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="screenshotsheader" id="screenshotsheader">
+        <p>Screenshots</p>
+        <div class="carousel-container">
+            <button class="prev" onclick="scrollCarouselLeft()">&#60;</button>
+            <div class="carousel">
+                <img src="https://lh3.googleusercontent.com/d/1jo8SlrVk2s5ShDiaZbYXWouqoCxrbusl" alt="Screenshot 1">
+                <img src="https://lh3.googleusercontent.com/d/1jo8SlrVk2s5ShDiaZbYXWouqoCxrbusl" alt="Screenshot 2">
+                <img src="https://lh3.googleusercontent.com/d/1jo8SlrVk2s5ShDiaZbYXWouqoCxrbusl" alt="Screenshot 3">
+                <img src="https://lh3.googleusercontent.com/d/1jo8SlrVk2s5ShDiaZbYXWouqoCxrbusl" alt="Screenshot 4">
+                <img src="https://lh3.googleusercontent.com/d/1jo8SlrVk2s5ShDiaZbYXWouqoCxrbusl" alt="Screenshot 5">
+                <img src="https://lh3.googleusercontent.com/d/1jo8SlrVk2s5ShDiaZbYXWouqoCxrbusl" alt="Screenshot 6">
+            </div>
+            <button class="next" onclick="scrollCarouselRight()">&#62;</button>
+        </div>
+    </div>
+
+    <div class="ourteamheader" id="ourteamheader">
+        <p style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; font-size: 28px; font-weight: bold;">Meet The Team</p>
+        <div class="ourteamcontainerdiv">
+            <div class="ourteamdiv">
+                <img src="https://lh3.googleusercontent.com/d/1vKefuVuAUuLjlxW5G-N37NHq8aXh_03e" alt="Arwen Uy">
+                <p class="name">Arwen Uy</p>
+                <p class="role">Lead Project Developer</p>
+            </div>
+
+            <div class="ourteamdiv">
+                <img src="https://lh3.googleusercontent.com/d/1vtbkWMyXeC9iYPdRcIzrISe1BOt96zJF" alt="Abdul Rahman">
+                <p class="name">Abdul Rahman</p>
+                <p class="role">Marketing</p>
+            </div>
+
+            <div class="ourteamdiv">
+                <img src="https://lh3.googleusercontent.com/d/1KUueqt3uqDoqREtN4-pAhCYS3srYiYMm" alt="Aldric Manly">
+                <p class="name">Aldric Manly</p>
+                <p class="role">Graphic Designer</p>
+            </div>
+
+            <div class="ourteamdiv">
+                <img src="https://lh3.googleusercontent.com/d/19kpQfLQfPswGIcTtIrmZpSOqTw1v7elZ" alt="Ibrar Khan">
+                <p class="name">Ibrar Khan</p>
+                <p class="role">Social Media Manager</p>
+            </div>
+
+            <div class="ourteamdiv">
+                <img src="https://lh3.googleusercontent.com/d/1oy5yU_gNNMRdZtHnEB5womU2OtMPcU6m" alt="Patrick Plantilla">
+                <p class="name">Patrick Plantilla</p>
+                <p class="role">Web Developer</p>
+            </div>
+
+            <div class="ourteamdiv">
+                <img src="https://lh3.googleusercontent.com/d/1hCfvzGmrXjkxiQnGDpivquII2OOsybJv" alt="Rosver Pansacala">
+                <p class="name">Rosver Pansacala</p>
+                <p class="role">Game Developer</p>
+            </div>
+
+            <div class="ourteamdiv">
+                <img src="https://lh3.googleusercontent.com/d/1Yt6gt9FJdPMV6w1B2_JEpVoxzIj8-ZSi" alt="Sameer Iqbal">
+                <p class="name">Sameer Iqbal</p>
+                <p class="role">Game Developer</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="merchandiseheader" id="Merchandise">
+        <p style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; font-size: 28px; font-weight: bold;">Merchandise</p>
+        <div class="merchandisecontainerdiv">
+            <div class="merchandisediv">
+                <img src="https://lh3.googleusercontent.com/d/1m7iQPoxchi5N6bsvcVaY7QINSbZSqdyV" alt="Merch 1">
+                <p class="merchname">Merch 1</p>
+                <p class="merchprice">$10</p>
+                <button class="buy-button" data-name="Merch 1" data-price="1000">Buy Now</button> <!-- Price in cents -->
+            </div>
+
+            <div class="merchandisediv">
+                <img src="https://lh3.googleusercontent.com/d/1m7iQPoxchi5N6bsvcVaY7QINSbZSqdyV" alt="Merch 1">
+                <p class="merchname">Merch 1</p>
+                <p class="merchprice">$10</p>
+                <button class="buy-button" data-name="Merch 1" data-price="1000">Buy Now</button> <!-- Price in cents -->
+            </div>
+
+            <div class="merchandisediv">
+                <img src="https://lh3.googleusercontent.com/d/1m7iQPoxchi5N6bsvcVaY7QINSbZSqdyV" alt="Merch 1">
+                <p class="merchname">Merch 1</p>
+                <p class="merchprice">$10</p>
+                <button class="buy-button" data-name="Merch 1" data-price="1000">Buy Now</button> <!-- Price in cents -->
+            </div>
+
+            <div class="merchandisediv">
+                <img src="https://lh3.googleusercontent.com/d/1m7iQPoxchi5N6bsvcVaY7QINSbZSqdyV" alt="Merch 1">
+                <p class="merchname">Merch 1</p>
+                <p class="merchprice">$10</p>
+                <button class="buy-button" data-name="Merch 1" data-price="1000">Buy Now</button> <!-- Price in cents -->
+            </div>
+
+            <div class="merchandisediv">
+                <img src="https://lh3.googleusercontent.com/d/1m7iQPoxchi5N6bsvcVaY7QINSbZSqdyV" alt="Merch 1">
+                <p class="merchname">Merch 1</p>
+                <p class="merchprice">$10</p>
+                <button class="buy-button" data-name="Merch 1" data-price="1000">Buy Now</button> <!-- Price in cents -->
+            </div>
+
+            <div class="merchandisediv">
+                <img src="https://lh3.googleusercontent.com/d/1m7iQPoxchi5N6bsvcVaY7QINSbZSqdyV" alt="Merch 1">
+                <p class="merchname">Merch 1</p>
+                <p class="merchprice">$10</p>
+                <button class="buy-button" data-name="Merch 1" data-price="1000">Buy Now</button> <!-- Price in cents -->
+            </div>
+        </div>
+    </div>
+
+    <div class="bottomheader">
+        <p>Copyright © 2025 Eco Command. All Rights Reserved</p>
+    </div>
+
+    <div class="fixed-video-container">
+        <iframe
+            src="https://www.youtube.com/embed/your_youtube_video_id?autoplay=1&mute=1"
+            title="Promotional Video (Fixed)"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen>
+        </iframe>
+    </div>
+
+    <script src="https://js.stripe.com/v3/"></script>
+    <script>
+        document.querySelectorAll('.topbar a').forEach(anchor => {
+            anchor.addEventListener('click', function(event) {
+                event.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
+
+                if (targetElement) {
+                    targetElement.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+
+        function scrollCarouselLeft() {
+            const carousel = document.querySelector(".carousel");
+            const image = carousel.querySelector("img");
+            if (image) {
+                const scrollAmount = image.offsetWidth + 20;
+                carousel.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+            }
+        }
+
+        function scrollCarouselRight() {
+            const carousel = document.querySelector(".carousel");
+            const image = carousel.querySelector("img");
+            if (image) {
+                const scrollAmount = image.offsetWidth + 20;
+                carousel.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+            }
+        }
+
+        // Replace 'your_youtube_video_id' with the actual ID of your YouTube video
+        const embeddedVideoId = 'your_youtube_video_id';
+        const embeddedIframe = document.querySelector('.about-video-container iframe');
+        const fixedVideoContainer = document.querySelector('.fixed-video-container');
+        const fixedIframe = document.querySelector('.fixed-video-container iframe');
+
+        let embeddedVideoVisible = false;
+
+        function checkEmbeddedVideoVisibility() {
+            if (!embeddedIframe) return;
+            const rect = embeddedIframe.getBoundingClientRect();
+            embeddedVideoVisible = (
+                rect.top >= 0 &&
+                rect.left >= 0 &&
+                rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+                rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+            );
+
+            // Basic logic - needs more sophisticated control
+            if (embeddedVideoVisible) {
+                // If embedded video is visible, maybe pause the fixed one (requires YouTube API for proper control)
+                // For a simple iframe, we can't directly control playback.
+                // One workaround could be to hide/show the fixed video container.
+                fixedVideoContainer.style.display = 'none';
+            } else {
+                fixedVideoContainer.style.display = 'block';
+            }
+        }
+
+        window.addEventListener('scroll', checkEmbeddedVideoVisibility);
+        window.addEventListener('resize', checkEmbeddedVideoVisibility);
+        window.addEventListener('load', checkEmbeddedVideoVisibility);
+
+        /*Payment javascript*/
+        document.querySelectorAll('.buy-button').forEach(button => {
+            button.addEventListener('click', async () => {
+            const name = button.getAttribute('data-name');
+            const price = button.getAttribute('data-price');
+
+            const response = await fetch('/create-checkout-session', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ name, price })
+            });
+
+            const session = await response.json();
+
+            const stripe = Stripe('pk_test_51RRsiiQMwjtHx1kkHq55wzqoS4fEByfkuy3W2rgAi2dYoyw6tpt1BGB99yWwtSIdi25q9o45BjmTPUfz90f9g9eY00xEIyGasS');
+            stripe.redirectToCheckout({ sessionId: session.id });
+            });
+        });
+    </script>
+</body>
+</html>
