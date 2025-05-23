@@ -1,4 +1,4 @@
-require('dotenv').config();
+/*require('dotenv').config();
 const express = require('express');
 const app = express();
 const Stripe = require('stripe');
@@ -40,3 +40,4 @@ app.post('/create-checkout-session', async (req, res) => {
 });
 
 app.listen(3000, () => console.log('Server running on http://localhost:3000'));
+*/
