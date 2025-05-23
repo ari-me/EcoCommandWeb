@@ -1,4 +1,4 @@
-/*require('dotenv').config();
+require('dotenv').config();
 const express = require('express');
 const app = express();
 const Stripe = require('stripe');
@@ -19,25 +19,23 @@ app.post('/create-checkout-session', async (req, res) => {
         {
           price_data: {
             currency: 'usd',
-            product_data: {
-              name: name,
-            },
+            product_data: { name },
             unit_amount: price,
           },
           quantity: 1,
         },
       ],
       mode: 'payment',
-      success_url: 'http://localhost:3000/success.html',
-      cancel_url: 'http://localhost:3000/cancel.html',
+      success_url: `${req.headers.origin}/success.html`,
+      cancel_url: `${req.headers.origin}/cancel.html`,
     });
 
     res.json({ id: session.id });
   } catch (err) {
-    console.error('Stripe session error:', err);
+    console.error('Stripe error:', err);
     res.status(500).json({ error: 'Failed to create session' });
   }
 });
 
-app.listen(3000, () => console.log('Server running on http://localhost:3000'));
-*/
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

@@ -926,13 +926,22 @@
         window.addEventListener('resize', checkEmbeddedVideoVisibility);
         window.addEventListener('load', checkEmbeddedVideoVisibility);
 
-        /*Payment javascript*/
-        document.querySelectorAll('.buy-button').forEach(button => {
-            button.addEventListener('click', async () => {
-            const name = button.getAttribute('data-name');
-            const price = button.getAttribute('data-price');
 
-            const response = await fetch('/create-checkout-session', {
+
+        /* Payment JavaScript */
+        document.querySelectorAll('.buy-button').forEach(button => {
+        button.addEventListener('click', async () => {
+            const name = button.getAttribute('data-name');
+            const price = parseInt(button.getAttribute('data-price')); // convert to number
+
+            // Determine the correct base URL
+            const isLocal = window.location.hostname === "localhost";
+            const baseURL = isLocal
+            ? "http://localhost:3000"
+            : "https://ecocommandweb.onrender.com"; // ⬅️ Replace with your actual backend URL from Render
+
+            try {
+            const response = await fetch(`${baseURL}/create-checkout-session`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ name, price })
@@ -940,10 +949,19 @@
 
             const session = await response.json();
 
-            const stripe = Stripe('pk_test_51RRsiiQMwjtHx1kkHq55wzqoS4fEByfkuy3W2rgAi2dYoyw6tpt1BGB99yWwtSIdi25q9o45BjmTPUfz90f9g9eY00xEIyGasS');
-            stripe.redirectToCheckout({ sessionId: session.id });
-            });
+            if (session.id) {
+                const stripe = Stripe('pk_test_51RRsiiQMwjtHx1kkHq55wzqoS4fEByfkuy3W2rgAi2dYoyw6tpt1BGB99yWwtSIdi25q9o45BjmTPUfz90f9g9eY00xEIyGasS');
+                stripe.redirectToCheckout({ sessionId: session.id });
+            } else {
+                alert('Failed to start checkout session');
+            }
+            } catch (err) {
+            console.error('Checkout error:', err);
+            alert('Error starting payment process');
+            }
         });
+        });
+
     </script>
 </body>
 </html>
