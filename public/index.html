@@ -941,20 +941,20 @@
             : "https://ecocommandweb.onrender.com"; // ⬅️ Replace with your actual backend URL from Render
 
             try {
-            const response = await fetch(`${baseURL}/create-checkout-session`, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ name, price })
-            });
+                const response = await fetch(`${baseURL}/create-checkout-session`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ name, price })
+                });
 
-            const session = await response.json();
+                const session = await response.json();
 
-            if (session.id) {
-                const stripe = Stripe('pk_test_51RRsiiQMwjtHx1kkHq55wzqoS4fEByfkuy3W2rgAi2dYoyw6tpt1BGB99yWwtSIdi25q9o45BjmTPUfz90f9g9eY00xEIyGasS');
-                stripe.redirectToCheckout({ sessionId: session.id });
-            } else {
-                alert('Failed to start checkout session');
-            }
+                if (session.id) {
+                    const stripe = Stripe('pk_test_51RRsiiQMwjtHx1kkHq55wzqoS4fEByfkuy3W2rgAi2dYoyw6tpt1BGB99yWwtSIdi25q9o45BjmTPUfz90f9g9eY00xEIyGasS');
+                    stripe.redirectToCheckout({ sessionId: session.id });
+                } else {
+                    alert('Failed to start checkout session');
+                }
             } catch (err) {
             console.error('Checkout error:', err);
             alert('Error starting payment process');
