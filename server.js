@@ -1,12 +1,13 @@
 require('dotenv').config();
 const express = require('express');
 const app = express();
-const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
+const Stripe = require('stripe');
+const stripe = Stripe(process.env.STRIPE_SECRET_KEY);
 const bodyParser = require('body-parser');
 const path = require('path');
 
 app.use(bodyParser.json());
-app.use(express.static('public'));
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.post('/create-checkout-session', async (req, res) => {
   const { name, price } = req.body;
