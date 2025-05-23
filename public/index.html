@@ -930,18 +930,12 @@
 
         /* Payment JavaScript */
         document.querySelectorAll('.buy-button').forEach(button => {
-        button.addEventListener('click', async () => {
-            const name = button.getAttribute('data-name');
-            const price = parseInt(button.getAttribute('data-price')); // convert to number
+            button.addEventListener('click', async () => {
+                const name = button.getAttribute('data-name');
+                const price = parseInt(button.getAttribute('data-price'));
 
-            // Determine the correct base URL
-            const isLocal = window.location.hostname === "localhost";
-            const baseURL = isLocal
-            ? "http://localhost:3000"
-            : "https://ecocommandweb.onrender.com"; // ⬅️ Replace with your actual backend URL from Render
-
-            try {
-                const response = await fetch(`${baseURL}/create-checkout-session`, {
+                try {
+                const response = await fetch('/create-checkout-session', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ name, price })
@@ -955,11 +949,11 @@
                 } else {
                     alert('Failed to start checkout session');
                 }
-            } catch (err) {
-            console.error('Checkout error:', err);
-            alert('Error starting payment process');
-            }
-        });
+                } catch (err) {
+                console.error('Checkout error:', err);
+                alert('Error starting payment process');
+                }
+            });
         });
 
     </script>

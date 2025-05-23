@@ -20,19 +20,19 @@ app.post('/create-checkout-session', async (req, res) => {
           price_data: {
             currency: 'usd',
             product_data: { name },
-            unit_amount: price,
+            unit_amount: parseInt(price),
           },
           quantity: 1,
         },
       ],
       mode: 'payment',
-      success_url: `${req.headers.origin}/success.html`,
-      cancel_url: `${req.headers.origin}/cancel.html`,
+      success_url: `${req.protocol}://${req.get('host')}/success.html`,
+      cancel_url: `${req.protocol}://${req.get('host')}/cancel.html`,
     });
 
     res.json({ id: session.id });
   } catch (err) {
-    console.error('Stripe error:', err);
+    console.error('Stripe session error:', err);
     res.status(500).json({ error: 'Failed to create session' });
   }
 });
