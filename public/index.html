@@ -19,7 +19,7 @@
         .startheader {
             background-image: url("https://lh3.googleusercontent.com/d/1I-znP0kCjb9WvXuw1lYPA_-75xcWWuzK");
             width: 100%;
-            height: 100vh;
+            height: 120vh;
             background-repeat: no-repeat;
             background-size: cover;
             background-position: center bottom;
@@ -39,7 +39,7 @@
             margin: 0 auto;
             max-width: 1300px;
             width: 95%;
-            min-height: 60px;
+            min-height: 100px;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             background-color: rgba(255, 255, 255, 0.9);
@@ -79,7 +79,7 @@
         }
 
         .topbar2 {
-            margin-top: 250px;
+            margin-top: 200px;
             background-color: transparent;
             box-shadow: none;
             display: flex;
@@ -491,11 +491,28 @@
             height: auto;
             padding: 15px;
             box-sizing: border-box;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
         }
 
-        .merchandisediv img {
+        .merchandisediv img:first-child {
             max-width: 100%;
             height: auto;
+            margin: 0px;
+            border-radius: 5px;
+        }
+
+        .merchdetails {
+            display: flex;
+            width: 85%;
+            justify-content: space-between;
+            align-items: center;
+            flex: 1;
+        }
+
+        .text-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
 
         .merchname {
@@ -504,12 +521,28 @@
             color: rgb(0, 0, 0);
             margin: 10px 0 0 0;
         }
-
+        
         .merchprice {
             font-size: 16px;
             color: rgb(126, 126, 126);
             margin: 5px 0 15px 0;
         }
+
+        .buy-button {
+            background: none;
+            border: none;
+            padding: 0;
+            cursor: pointer;
+            margin-left: 20px;
+        }
+
+        .buy-button img {
+            padding-top:10px;
+            width: 50px;
+            height: auto;
+        }
+
+
         /*end of merchandise styles*/
 
 
@@ -804,45 +837,133 @@
         <p style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; font-size: 28px; font-weight: bold;">Merchandise</p>
         <div class="merchandisecontainerdiv">
             <div class="merchandisediv">
-                <img src="https://lh3.googleusercontent.com/d/1m7iQPoxchi5N6bsvcVaY7QINSbZSqdyV" alt="Merch 1">
-                <p class="merchname">Merch 1</p>
-                <p class="merchprice">$10</p>
-                <button class="buy-button" data-name="Merch 1" data-price="1000">Buy Now</button> <!-- Price in cents -->
+                <img src="https://lh3.googleusercontent.com/d/1wj2jgQmnVtXGMMIit6ePbUbF-b93tKu4" alt="EcoCommand Game Assets">
+                <div class="merchdetails">
+                    <div class="text-container">
+                        <p class="merchname">Game Assets</p>
+                        <p class="merchprice">$2.00</p>
+                    </div>
+                    <button class="buy-button" data-name="Game Assets" data-price="200">
+                        <img src="https://cdn4.iconfinder.com/data/icons/user-interface-outline-27/24/11.bag_shopping_buy_commerce_ecommerce-256.png" alt="Buy Now">
+                    </button>
+                </div>
             </div>
 
             <div class="merchandisediv">
-                <img src="https://lh3.googleusercontent.com/d/1m7iQPoxchi5N6bsvcVaY7QINSbZSqdyV" alt="Merch 1">
-                <p class="merchname">Merch 1</p>
-                <p class="merchprice">$10</p>
-                <button class="buy-button" data-name="Merch 1" data-price="1000">Buy Now</button> <!-- Price in cents -->
+                <img src="https://lh3.googleusercontent.com/d/1kXpx5i0nr8Nc3A7LJkgMTCZq3ZMswkL1" alt="EcoCommand Board Game">
+                <div class="merchdetails">
+                    <div class="text-container">
+                        <p class="merchname">EcoCommand Board Game</p>
+                        <p class="merchprice">$10.35</p>
+                    </div>
+                    <button class="buy-button" data-name="EcoCommand Board Game" data-price="1035">
+                        <img src="https://cdn4.iconfinder.com/data/icons/user-interface-outline-27/24/11.bag_shopping_buy_commerce_ecommerce-256.png" alt="Buy Now">
+                    </button>
+                </div>
             </div>
 
             <div class="merchandisediv">
-                <img src="https://lh3.googleusercontent.com/d/1m7iQPoxchi5N6bsvcVaY7QINSbZSqdyV" alt="Merch 1">
-                <p class="merchname">Merch 1</p>
-                <p class="merchprice">$10</p>
-                <button class="buy-button" data-name="Merch 1" data-price="1000">Buy Now</button> <!-- Price in cents -->
+                <img src="https://lh3.googleusercontent.com/d/1fg1UMHk9gROZhlG4RsFEeBW0_bquA1uf" alt="EcoCommand Pipes Game">
+                <div class="merchdetails">
+                    <div class="text-container">
+                        <p class="merchname">EcoCommand Pipes Game</p>
+                        <p class="merchprice">$7.62</p>
+                    </div>
+                    <button class="buy-button" data-name="EcoCommand Pipes Game" data-price="762">
+                        <img src="https://cdn4.iconfinder.com/data/icons/user-interface-outline-27/24/11.bag_shopping_buy_commerce_ecommerce-256.png" alt="Buy Now">
+                    </button>
+                </div>
             </div>
 
             <div class="merchandisediv">
-                <img src="https://lh3.googleusercontent.com/d/1m7iQPoxchi5N6bsvcVaY7QINSbZSqdyV" alt="Merch 1">
-                <p class="merchname">Merch 1</p>
-                <p class="merchprice">$10</p>
-                <button class="buy-button" data-name="Merch 1" data-price="1000">Buy Now</button> <!-- Price in cents -->
+                <img src="https://lh3.googleusercontent.com/d/1ZN5WJB-gEyT7w6nmFQowbJ2w5mEzSCjQ" alt="EcoCommand Shop Magnets">
+                <div class="merchdetails">
+                    <div class="text-container">
+                        <p class="merchname">25pcs EcoCommand Shop Magnets</p>
+                        <p class="merchprice">$12.25</p>
+                    </div>
+                    <button class="buy-button" data-name="EcoCommand Shop Magnets" data-price="1225">
+                        <img src="https://cdn4.iconfinder.com/data/icons/user-interface-outline-27/24/11.bag_shopping_buy_commerce_ecommerce-256.png" alt="Buy Now">
+                    </button>
+                </div>
             </div>
 
             <div class="merchandisediv">
-                <img src="https://lh3.googleusercontent.com/d/1m7iQPoxchi5N6bsvcVaY7QINSbZSqdyV" alt="Merch 1">
-                <p class="merchname">Merch 1</p>
-                <p class="merchprice">$10</p>
-                <button class="buy-button" data-name="Merch 1" data-price="1000">Buy Now</button> <!-- Price in cents -->
+                <img src="https://lh3.googleusercontent.com/d/1ARELMR7leWPiEv0Im-3-m0VzdpNrCmv1" alt="EcoCommand Cap">
+                <div class="merchdetails">
+                    <div class="text-container">
+                        <p class="merchname">EcoCommand Cap</p>
+                        <p class="merchprice">$5.45</p>
+                    </div>
+                    <button class="buy-button" data-name="EcoCommand Cap" data-price="545">
+                        <img src="https://cdn4.iconfinder.com/data/icons/user-interface-outline-27/24/11.bag_shopping_buy_commerce_ecommerce-256.png" alt="Buy Now">
+                    </button>
+                </div>
             </div>
 
             <div class="merchandisediv">
-                <img src="https://lh3.googleusercontent.com/d/1m7iQPoxchi5N6bsvcVaY7QINSbZSqdyV" alt="Merch 1">
-                <p class="merchname">Merch 1</p>
-                <p class="merchprice">$10</p>
-                <button class="buy-button" data-name="Merch 1" data-price="1000">Buy Now</button> <!-- Price in cents -->
+                <img src="https://lh3.googleusercontent.com/d/1F7VJWx7Jq_HlXTx2Lh6Ic7k00ubeuYhl" alt="EcoCommand Tote">
+                <div class="merchdetails">
+                    <div class="text-container">
+                        <p class="merchname">EcoCommand Tote</p>
+                        <p class="merchprice">$2.72</p>
+                    </div>
+                    <button class="buy-button" data-name="EcoCommand Tote" data-price="272">
+                        <img src="https://cdn4.iconfinder.com/data/icons/user-interface-outline-27/24/11.bag_shopping_buy_commerce_ecommerce-256.png" alt="Buy Now">
+                    </button>
+                </div> 
+            </div>
+
+            <div class="merchandisediv">
+                <img src="https://lh3.googleusercontent.com/d/15zx3j0q3foaEa7ad1fFbCkqc8MxLDP7r" alt="EcoCommand Disaster Cap">
+                <div class="merchdetails">
+                    <div class="text-container">
+                        <p class="merchname">EcoCommand Disasters Cap</p>
+                        <p class="merchprice">$5.45</p>
+                    </div>
+                    <button class="buy-button" data-name="EcoCommand Disasters Cap" data-price="545">
+                        <img src="https://cdn4.iconfinder.com/data/icons/user-interface-outline-27/24/11.bag_shopping_buy_commerce_ecommerce-256.png" alt="Buy Now">
+                    </button>
+                </div> 
+            </div>
+            
+            <div class="merchandisediv">
+                <img src="https://lh3.googleusercontent.com/d/1yUX-sdWp9UBfROqpkkrWUKuLEvLuiqPI" alt="EcoCommand T-Shirt">
+                <div class="merchdetails">
+                    <div class="text-container">
+                        <p class="merchname">EcoCommand T-Shirt</p>
+                        <p class="merchprice">$6.45</p>
+                    </div>
+                    <button class="buy-button" data-name="EcoCommand T-Shirt" data-price="645">
+                        <img src="https://cdn4.iconfinder.com/data/icons/user-interface-outline-27/24/11.bag_shopping_buy_commerce_ecommerce-256.png" alt="Buy Now">
+                    </button>
+                </div> 
+            </div>
+
+            <div class="merchandisediv">
+                <img src="https://lh3.googleusercontent.com/d/1YTltcCZ3zghk1dfcqF8WoWFZrvyR4kTI" alt="EcoCommand Mug">
+                <div class="merchdetails">
+                    <div class="text-container">
+                        <p class="merchname">EcoCommand Mug</p>
+                        <p class="merchprice">$8.17</p>
+                    </div>
+                    <button class="buy-button" data-name="EcoCommand Mug" data-price="817">
+                        <img src="https://cdn4.iconfinder.com/data/icons/user-interface-outline-27/24/11.bag_shopping_buy_commerce_ecommerce-256.png" alt="Buy Now">
+                    </button>
+                </div> 
+            </div>
+
+            <div class="merchandisediv">
+                <img src="https://lh3.googleusercontent.com/d/1vx8njfq8pWEY43x6Sg4OBBfZKATlx2cO" alt="EcoCommand Disaster Hoodie">
+                <div class="merchdetails">
+                    <div class="text-container">
+                        <p class="merchname">EcoCommand Disaster Hoodie</p>
+                        <p class="merchprice">$10.53</p>
+                    </div>
+                    <button class="buy-button" data-name="EcoCommand Disaster Hoodie" data-price="1053">
+                        <img src="https://cdn4.iconfinder.com/data/icons/user-interface-outline-27/24/11.bag_shopping_buy_commerce_ecommerce-256.png" alt="Buy Now">
+                    </button>
+                </div> 
             </div>
         </div>
     </div>
